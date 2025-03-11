@@ -1,0 +1,43 @@
+<div class="course-detail-page">
+  <h2>Курс: {{ course?.title }}</h2>
+
+  <!-- Блок с детальной информацией о выбранной теме -->
+  <div class="selected-topic" *ngIf="selectedTopic">
+    <h3>{{ selectedTopic.title }}</h3>
+    <p>
+      <img src="assets/video.png">
+      <strong>Видео:</strong>
+      <a [href]="selectedTopic.video_url" target="_blank"> {{ selectedTopic.video_title }}</a>
+    </p>
+    <p>
+      <img src="assets/clock.png">
+      <strong>Ұзақтылығы:</strong> {{ selectedTopic.duration_in_minutes }} минут
+    </p>
+
+    <!-- Пример отображения теста, если он есть -->
+    <div *ngIf="selectedTopic.test">
+      <app-topic-test
+        [topicId]="selectedTopic.id"
+        [test]="selectedTopic.test"
+        [hasNextTopic]="!isLastTopic"
+        (submit)="onTestSubmit()"
+        (nextTopic)="goToNextTopic()"
+      ></app-topic-test>
+    </div>
+  </div>
+
+  <!-- Список тем -->
+  <ul class="topics-list">
+    <li
+      *ngFor="let t of topics"
+      [class.selected]="t.id === selectedTopic?.id"
+      (click)="t.is_unlocked && onSelectTopic(t)"
+    >
+      <button [disabled]="!t.is_unlocked">
+        {{ t.order }}. {{ t.title }}
+        <span *ngIf="!t.is_unlocked">(жабық)</span>
+      </button>
+      <span class="duration">Ұзақтылығы: {{ t.duration_in_minutes }} мин.</span>
+    </li>
+  </ul>
+</div>

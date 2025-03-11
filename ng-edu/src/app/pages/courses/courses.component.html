@@ -1,0 +1,27 @@
+<h1 class="page-title">Барлық курстар</h1>
+<section class="courses-page">
+
+  <div *ngIf="isLoading" class="loading">
+    <img class="loading-gifs"  src="assets/loading.gif" alt="..."><img>
+    Жүктелуде...
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    <img class="loading-gifs" src="assets/error.png" alt="..."><img>
+    Курстарды жүктеу қатесі
+  </div>
+
+  <div *ngIf="!isLoading && courses.length > 0" class="courses-container">
+    <div *ngFor="let c of courses" class="course-card" [routerLink]="['/courses', c.id]" [state]="c" >
+      <div class="course-image">
+        <img [src]="c.img || 'assets/question-sign.png'" alt="{{ c.title }} "/>
+      </div>
+      <div class="course-title">
+        <h3>{{ c.title }}</h3>
+        <hr>
+        <p class="course-description" >
+          {{ (c.description | slice:0:120 )+ '...' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

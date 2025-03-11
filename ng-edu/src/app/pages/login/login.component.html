@@ -1,0 +1,41 @@
+<h2>Авторизация</h2>
+
+<div class="authorization">
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <label for="username">Логин:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      ngModel
+      required
+      #username="ngModel"
+      (input)="clearErrors()"
+      [class.invalid]="username.invalid && username.touched"
+    />
+    <div *ngIf="username.invalid && username.touched" class="error-message">
+      Логинді енгізіңіз
+    </div>
+
+    <label for="password">Құпия сөз:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      ngModel
+      required
+      #password="ngModel"
+      (input)="clearErrors()"
+      [class.invalid]="password.invalid && password.touched"
+    />
+    <div *ngIf="password.invalid && password.touched" class="error-message">
+      Құпия сөзді енгізіңіз
+    </div>
+
+    <button type="submit" [disabled]="f.invalid">Кіру</button>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+
+</div>

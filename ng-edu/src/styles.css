@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*Montserrat Alternates*/
+/*Caveat*/
+/*Shantell Sans*/
+
+
+p, a, button, h1, h2, h3, h4, h5, h6, span, label, input, option, select, textarea {
+  font-family: "Shantell Sans", sans-serif;
+}
+
+
+body {
+  /*background-color: white;*/
+  background-color: rgba(235, 251, 251, 0.7);
+  margin: 0;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

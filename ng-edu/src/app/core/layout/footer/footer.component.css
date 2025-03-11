@@ -1,0 +1,72 @@
+.icon {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+
+#mail-icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 5px;
+}
+
+.link {
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.link:hover {
+  font-weight: bold;
+  color: #2b85dc;
+}
+
+
+footer {
+  margin-left: 10%;
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 10px;
+  border-top: 1px solid #ddd; /* Разделительная линия */
+}
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center align text */
+    padding: 20px 5px;
+  }
+
+  .non-clickable, .clickable {
+    width: 100%; /* Full width for elements */
+    margin-bottom: 15px; /* Add space between sections */
+  }
+
+  .social-links, .footer-contacts {
+    display: flex;
+    justify-content: center; /* Center align content */
+    align-items: center; /* Align vertically */
+    flex-wrap: wrap; /* Wrap content if needed */
+    margin-bottom: 10px; /* Add space between sections */
+  }
+
+  .icon {
+    width: 25px; /* Adjust icon size */
+    height: 25px;
+    margin-right: 5px; /* Add some space between icon and text */
+  }
+
+  #mail-icon {
+    margin-top: 0; /* Remove extra margin for smaller screens */
+  }
+
+  .link {
+    font-size: 18px; /* Slightly smaller text size */
+  }
+}

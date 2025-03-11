@@ -1,0 +1,13 @@
+<h2>Бүгінгі тіркелулер</h2>
+
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngIf="registrations.length === 0 && !errorMessage">
+  <p>Бүгін тіркелу жоқ</p>
+</div>
+
+<ul *ngIf="registrations.length > 0">
+  <li *ngFor="let registration of registrations">
+    <strong>{{ registration.name }}</strong> - {{ registration.phone }} - {{ registration.selected_pair }}
+  </li>
+</ul>

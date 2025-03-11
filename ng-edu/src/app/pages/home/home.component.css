@@ -1,0 +1,1113 @@
+/* Основная секция */
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+
+/*Секция 3*/
+#section3 {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 40px 0;
+}
+
+/* Контейнер для карточек и заголовков */
+.pricing-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.pricing-titles {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Заголовок (слева) */
+.pricing-title {
+  font-size: 2.5rem;
+  font-weight: 750;
+  margin: 0;
+}
+
+h3.pricing-title {
+  background: linear-gradient(90deg, #a8e6cf, #1a85eb, #ffe259);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  justify-self: center;
+}
+
+/* Подзаголовок (справа) */
+.pricing-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Контейнер карточек */
+.pricing-cards {
+  margin-top: 20px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Карточки */
+.pricing-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  width: 360px;
+  height: 470px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+
+/* Стандартная карточка с градиентом */
+.pricing-card#standard {
+  background-image: linear-gradient(135deg, #a8e6cf, #dcedc1);
+  box-shadow: 10px 10px 15px rgba(38, 140, 228, 0.3);
+}
+
+/* Стандарт Плюс с градиентом */
+.pricing-card#standard-plus {
+  background-image: linear-gradient(135deg, #2a90e0, #1d69b6);
+  box-shadow: 10px 10px 15px rgba(36, 140, 229, 0.3);
+  color: #fff; /* Меняем цвет текста, чтобы он был видимым */
+}
+
+/* Премиум с градиентом */
+.pricing-card#premium {
+  background-image: linear-gradient(135deg, #ffe259, #ffa751);
+  box-shadow: 10px 10px 15px rgba(254, 239, 82, 0.3);
+}
+
+
+.pricing-cards:hover .pricing-card {
+  filter: blur(4px);
+}
+
+.pricing-container .pricing-card:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+
+
+/* Заголовок карточки */
+.pricing-header {
+  align-self: center;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -20px;
+}
+
+#standard-plus h3, #standard-plus li  {
+  color: white;
+}
+
+li {
+  font-family: "Shantell Sans", sans-serif;
+}
+
+.pricing-header img {
+  width: 80px;
+  height: 80px;
+}
+
+.pricing-header h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Список функций */
+.pricing-features {
+  margin-top: -10px;
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.pricing-features li {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Цены */
+.pricing-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.old-price {
+  align-self: end;
+  font-size: 1.1rem;
+  text-decoration: line-through;
+}
+
+.year {
+  font-size: 1.1rem;
+  font-weight: 550;
+}
+
+#standard .pricing-footer {
+  color: #1a85eb;
+}
+
+#standard-plus .pricing-footer {
+  color: white;
+}
+
+.new-price {
+  margin-top: -10px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.installment {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: -30px;
+}
+
+.pricing-title {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #333;
+  font-weight: 800;
+}
+
+.pricing-card h3 {
+  font-family: "Shantell Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #333;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+}
+
+.pricing-card h3::after {
+  content: '';
+  display: block;
+  width: 170px;
+  height: 4px;
+  background-color: #1a85eb;
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.pricing-card#standard-plus h3::after {
+  background-color: #ece9e9;
+}
+
+
+/*Навигатор*/
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0 0 0;
+}
+
+.home-button {
+  background: none;
+  border: none;
+  color: #1a85eb;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+  color: #71aae1;
+}
+
+.home-button:active {
+  color: #034183;
+  transform: scale(0.95);
+}
+
+.home-button:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+
+
+
+/*Движение секций*/
+section {
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: translateX(-100%);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+section.exit-left {
+  transform: translateX(-100%);
+}
+
+section.enter-right {
+  transform: translateX(0);
+}
+
+
+.enter-bottom {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.exit-top {
+  /*transform: translateY(-100%);*/
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+/*Секция 4*/
+#section4 {
+}
+
+input.invalid,
+select.invalid {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+h1.header {
+  font-family: "Montserrat Alternates", sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 50px 0 40px 0;
+  background: linear-gradient(90deg, #7bdcb5, #3c85eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 750;
+}
+
+.containers {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #7bdcb5, #3c85eb);
+}
+
+.registration-container {
+  width: 380px;
+  background-color: white;
+  border-radius: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-input,
+.form-select {
+  background: transparent;
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+  border: #333 solid 1px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-select {
+  background-image: linear-gradient(45deg, transparent 50%, #333 50%),
+  linear-gradient(135deg, #333 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px),
+  calc(100% - 15px) calc(50% + 2px);
+  background-size: 5px 5px,
+  5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+.form-input {
+  color: #333;
+}
+
+.form-input::placeholder,
+.form-select::placeholder {
+  color: #333;
+}
+
+.form-select::-ms-expand {
+  display: none;
+}
+
+
+.submit-button {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #7bdcb5, #3c85eb);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  transition: 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: linear-gradient(90deg, #7bdcb5, #3c85eb);
+  border-radius: 37px;
+  z-index: -1;
+}
+
+.submit-button:hover::before {
+  left: 100%;
+}
+
+.agreement {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+
+.whatsapp-container {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.whatsapp-container p {
+  margin-top: 0;
+}
+
+
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: #fff;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Shantell Sans', sans-serif;
+  text-transform: uppercase;
+  min-width: 180px;
+  height: 40px;
+}
+
+.btn-flip:hover::after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip:hover::before {
+  opacity: 0;
+  transform: translateY(50%) rotateX(90deg);
+}
+
+
+.btn-flip::before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: #3c85eb;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+}
+
+.btn-flip::after {
+  top: 0;
+  left: 35%;
+  opacity: 0;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  transition: 0.5s;
+  position: absolute;
+  transform: translateY(-50%) rotateX(90deg);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  content: "WhatsApp";
+  background-image: url('/assets/whatsapp-icon.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px;
+  color: #7bdcb5 ;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.submit-button {
+  height: 40px;
+  font-size: 14px;
+}
+
+.home-button:hover {
+  color: #71aae1;
+}
+
+.home-button:active {
+  color: #034183;
+  transform: scale(0.95);
+}
+
+.home-button:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+
+section.exit-left {
+  transform: translateX(-100%);
+}
+
+section.enter-right {
+  transform: translateX(0);
+}
+
+/* Секция 1*/
+#section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+}
+h1.sec1-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, #1a85eb, #1a85eb, #ffe259, #ffe259);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 750;
+}
+.carousel-and-title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 30px 0 0 0;
+  overflow: hidden;
+  background: rgba(26, 133, 235, 0);
+  border: none;
+  border-radius: 30px;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  margin: 50px 300px 50px 300px;
+  gap: 50px;
+
+}
+
+.slide {
+  min-width: calc(100% - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  filter: blur(4px);
+  transform: scale(0.9);
+  transition: all 400ms ease;
+}
+.slide.active{
+  filter: none;
+  transform: scale(1.1);
+}
+.slide-image {
+  min-width: 30%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 30px;
+  margin-right: 20px;
+  transform: scale(0.7);
+  object-fit: contain;
+}
+
+.slide-content {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 1.5rem;
+
+}
+
+.slide-title {
+  font-style: italic;
+  font-size: 1.8rem;
+  margin: 0 0 10px;
+  /*border: 2px solid #ffe259 ;*/
+  background: linear-gradient(90deg, rgba(255, 226, 89, 0.43), rgba(26, 133, 235, 0.44));
+  font-weight: bold;
+  color: #034183;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+.slide-description {
+  font-size: 1rem;
+  color: rgb(3, 65, 131);
+  background: linear-gradient(90deg, rgba(255, 226, 89, 0.43), rgba(26, 133, 235, 0.44));
+  /*border: 2px solid #1A85EB;*/
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  align-self: end;
+  padding: 30px;
+}
+
+.carousel-dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 70px 0 0 0;
+  width: 50%;
+  justify-self: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background: rgba(26, 133, 235, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+  background: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 8px #1a85eb;
+  border: 1px solid #1a85eb;
+}
+
+.dot.active {
+  background: #1a85eb;
+  transform: scale(1.3);
+}
+
+.arrow {
+  position: relative;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  transition: all 400ms ease;
+}
+
+.left-arrow {
+  width: 100px;
+}
+
+.left-arrow:hover {
+  padding-right: 30px;
+}
+
+.right-arrow {
+  width: 100px;
+}
+
+.right-arrow:hover {
+  padding-left: 30px;
+}
+/* Секция 2 */
+#section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sec2-title {
+  font-family: "Montserrat Alternates", sans-serif;
+  background: linear-gradient(90deg, #f18235, #1a85eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 750;
+}
+
+.intro-section {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 50px;
+  width: 100%;
+  max-width: 1400px;
+  align-items: center;
+  align-self: center;
+}
+
+.main-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+  height: auto;
+  margin: auto;
+  border-radius: 30px;
+  border: 8px solid #1a85eb;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 20px 20px 30px rgb(3, 65, 131);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: scale-down;
+}
+
+.no-video {
+  text-align: center;
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #7bdcb5, #3c85eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.coming-soon {
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.coming-soon img {
+  width: 100px;
+  height: 100px;
+}
+
+.teachers-list {
+  display: flex;
+  flex-direction: column;
+  gap: unset;
+  width: 100%;
+  padding: 10px;
+}
+
+.teacher-card {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #ffffff, #1a85eb);
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.teacher-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.teacher-content img {
+  padding: 5px;
+}
+
+.teacher-info {
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.teacher-info h3 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: bold;
+}
+
+.teacher-card.card-even {
+  flex-direction: row;
+  background: linear-gradient(90deg, #1a85eb, rgba(235, 251, 251, 0.7));
+  border-top-left-radius: 95px;
+  border-bottom-left-radius: 95px;
+}
+
+.teacher-card.card-odd {
+  background: linear-gradient(90deg, rgba(235, 251, 251, 0.7), #f18235);
+  border-top-right-radius: 95px;
+  border-bottom-right-radius: 95px;
+}
+
+.teacher-card.card-odd {
+  flex-direction: row-reverse;
+}
+
+.teacher-card img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: white;
+  object-fit: cover;
+}
+
+.teacher-info {
+  flex: 1;
+  align-self: center;
+}
+
+.teacher-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #034183;
+}
+
+.teacher-card p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Mobile adjustments */
+@media (max-width: 1280px) {
+  section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: none;
+    align-self: center;
+  }
+
+  .sections{
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+  h1.header {
+    font-size: 1.5rem;
+    margin: 15px 0;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .home-button {
+    font-size: 1rem;
+  }
+
+/*section1*/
+  #section1 {
+    padding: 20px;
+  }
+
+  h1.sec1-title {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  .carousel-and-title {
+    width: 100%;
+  }
+
+  .carousel-container {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 15px;
+  }
+
+  .carousel-slides {
+    margin: 20px 0 0 36px;
+    gap: 36px;
+  }
+
+  .slide {
+    min-width: calc(100% - 36px);
+    flex-direction: column;
+    transform: scale(1);
+    filter: none;
+  }
+
+  .slide.active {
+    transform: scale(1);
+  }
+
+  .slide-image {
+    min-width: 80%;
+    max-height: 200px;
+    margin-bottom: 10px;
+  }
+
+  .slide-content {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .slide-title {
+    font-size: 1.4rem;
+    padding: 8px;
+  }
+
+  .slide-description {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .carousel-dots {
+    width: 80%;
+    margin: 30px 0;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
+  .arrow {
+    width: 50px;
+  }
+
+  .left-arrow:hover {
+    padding-right: 10px;
+  }
+
+  .right-arrow:hover {
+    padding-left: 10px;
+  }
+
+/*section2*/
+  .teacher-card {
+    flex-direction: column;
+  }
+
+  .teacher-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .sec2-title {
+    font-size: 2rem;
+  }
+
+  .intro-section {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-video {
+    width: fit-content;
+    margin: 0;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgb(3, 65, 131);
+  }
+  .coming-soon{
+    width: 200px;
+    height: 300px;
+  }
+  .teachers-list {
+    padding: 20px;
+  }
+/*section3*/
+  #section3 {
+    margin: 20px 0;
+    width: 100%;
+  }
+  .pricing-card{
+    max-width: 300px;
+    align-self: center;
+  }
+  .pricing-container {
+    align-self: center;
+    text-align: center;
+    width: fit-content;
+    padding: 10px;
+  }
+  .month-price{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+    width: fit-content;
+  }
+  .year{
+    align-self: center;
+  }
+  .old-price{
+    align-self: center;
+  }
+
+  .pricing-titles {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px 0;
+  }
+
+  .pricing-title {
+    font-size: 1.8rem;
+  }
+
+  .pricing-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .pricing-cards {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+  }
+
+  .pricing-card {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .pricing-header img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pricing-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .pricing-features li {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
+
+  .old-price,
+  .year {
+    font-size: 0.9rem;
+  }
+
+  .new-price {
+    font-size: 1.5rem;
+  }
+
+  .installment {
+    font-size: 0.9rem;
+  }
+
+
+  h1.header {
+    font-size: 2rem;
+    margin: 30px 0 20px 0;
+  }
+
+  .containers {
+    height: auto;
+    padding: 20px;
+  }
+
+  .registration-container {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  .form-input,
+  .form-select {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .submit-button {
+    height: 40px;
+    font-size: 14px;
+  }
+}

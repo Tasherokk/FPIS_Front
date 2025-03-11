@@ -1,0 +1,57 @@
+<div class="test-container">
+  <h2>Тақырып бойынша тест</h2>
+
+  <!-- Список вопросов -->
+  <div class="question-navigation">
+    <button
+      *ngFor="let question of questions; let i = index"
+      [class.answered]="answers[i] !== undefined"
+      [class.active]="currentQuestionIndex === i"
+      [class.correct]="showResults && isCorrectAnswer(i)"
+      [class.incorrect]="showResults && !isCorrectAnswer(i)"
+      (click)="goToQuestion(i)"
+    >
+      {{ i + 1 }}
+    </button>
+  </div>
+
+  <!-- Текущий вопрос -->
+  <div class="question">
+    <h3 [innerHTML]="currentQuestion.text"></h3>
+    <ul>
+      <li *ngFor="let answer of currentQuestion.answers"
+          [class.correct]="showResults && answers[currentQuestionIndex] === answer.id && isCorrectAnswer(currentQuestionIndex)"
+          [class.incorrect]="showResults && answers[currentQuestionIndex] === answer.id && !isCorrectAnswer(currentQuestionIndex)">
+        <label>
+          <input
+            type="radio"
+            [value]="answer.id"
+            name="question-{{ currentQuestionIndex }}"
+            [checked]="answers[currentQuestionIndex] === answer.id"
+            [disabled]="showResults"
+            (change)="selectAnswer(answer.id)"
+          />
+          <span [innerHTML]="answer.text"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Кнопки управления -->
+  <div class="controls">
+    <button (click)="submitTest()" *ngIf="allQuestionsAnswered() && !showResults">
+      Тестті аяқтау
+    </button>
+    <p *ngIf="!allQuestionsAnswered()">Тестті аяқтау үшін барлық сұрақтарға жауап беріңіз.</p>
+    <button (click)="restartTest()" *ngIf="showResults">Қайта тапсыру</button>
+  </div>
+
+  <!-- Результаты -->
+  <div *ngIf="showResults" class="results">
+    <p>Cіз {{ score }}/{{ questions.length }} сұраққа дұрыс жауап бердіңіз!</p>
+    <p *ngIf="passed">Тесттен өттіңіз! 🎉</p>
+    <p *ngIf="!passed">Тесттен өтпедіңіз. Қайта тапсырып көріңіз.</p>
+    <button *ngIf="passed && hasNextTopic" (click)="goToNextTopic()">Келесі тақырыпқа көшу</button>
+    <p *ngIf="passed && !hasNextTopic">Курсты аяқтауыңызбен құттықтаймыз! 🎉</p>
+  </div>
+</div>

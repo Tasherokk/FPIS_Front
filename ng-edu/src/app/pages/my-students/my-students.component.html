@@ -1,0 +1,9 @@
+<h2>Мои студенты</h2>
+<div *ngFor="let student of data">
+  <h3>Студент: {{ student.student_name }}</h3>
+  <ul>
+    <li *ngFor="let c of student.courses">
+      {{ c.course_title }}: {{ c.passed_topics }}/{{ c.total_topics }} тем
+    </li>
+  </ul>
+</div>

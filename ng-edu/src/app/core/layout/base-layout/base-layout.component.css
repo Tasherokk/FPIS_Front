@@ -1,0 +1,4 @@
+main {
+  min-height: 110vh; /* Занимает всё доступное пространство */
+  /*background: linear-gradient(135deg, #f5f7fa 0%, #e4eaef 100%);*/
+}

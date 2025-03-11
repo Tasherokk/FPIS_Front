@@ -1,0 +1,220 @@
+* {
+  font-family: "Montserrat Alternates", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.test-container {
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: auto;
+}
+p{
+  font-family: "Shantell Sans", sans-serif;
+}
+h2 {
+  font-size: 2rem;
+  color: #1a85eb;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #034183;
+  margin-bottom: 15px;
+}
+
+.question-navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.question-navigation button {
+  text-align: center;
+  font-family: "Shantell Sans", sans-serif;
+  background: #e3e3e3;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+@media(max-width: 768px){
+  .question-navigation{
+    max-width: 300px; /* Задаем ограничение по ширине для контроля рядов */
+  }
+  .question-navigation button{
+    flex: 1 1 calc(20% - 10px); /* Делаем 5 кнопок в ряду */
+    max-width: calc(20% - 10px);
+    padding: 8px 0;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+}
+.question-navigation button:hover {
+  background: #d0d0d0;
+}
+
+.question-navigation button.answered {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.question-navigation button.active {
+  background: #1a85eb;
+  color: white;
+  font-weight: bold;
+}
+
+.question-navigation button.correct {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.question-navigation button.incorrect {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.question ul li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.question ul li label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.question ul li:hover {
+  background: #f1f1f1;
+  border-color: #aaa;
+}
+
+.question ul li input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+
+.question ul li.correct {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.question ul li.incorrect {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.controls button {
+  background: #1a85eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.controls button:hover {
+  background: #155dbe;
+}
+
+.controls button:disabled {
+  background: #e3e3e3;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.results {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.results p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.results p.passed {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.results p.failed {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.results button {
+  background: #1a85eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.results button:hover {
+  background: #155dbe;
+}

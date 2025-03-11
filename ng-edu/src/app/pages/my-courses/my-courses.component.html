@@ -1,0 +1,22 @@
+<h1 class="page-title">Менің курстарым</h1>
+<section class="courses-page">
+  <div *ngIf="isLoading" class="loading">
+    <img class="loading-gifs"  src="assets/loading.gif" alt="..."><img>
+    Жүктелуде...
+  </div>
+  <div *ngIf="!isLoading" class="courses-container">
+    <div *ngFor="let c of myCourses" class="course-card" [routerLink]="['/my-courses', c.id]" [state]="c">
+
+      <div class="course-image">
+        <img [src]="c.img || 'assets/question-sign.png'" alt="{{ c.title }} "/>
+      </div>
+      <div class="course-title">
+        <h3>{{ c.title }}</h3>
+        <hr>
+        <p class="course-description">
+          {{ (c.description | slice: 0: (isMobile ? 60 : 125)) + '...' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

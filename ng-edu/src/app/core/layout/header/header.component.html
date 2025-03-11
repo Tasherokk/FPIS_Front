@@ -1,0 +1,50 @@
+<nav>
+  <div class="logo-container">
+    <img routerLink="/home" src="assets/logo.png" alt="Company Logo">
+    <div class="company-name">
+      <span id="oy">Oy</span>
+      <span id="sana">Sana </span>
+      <span id="academy">Education</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a routerLink="/home" data-text="Басты бет">Басты бет</a>
+    <a routerLink="/courses" data-text="Курстар">Курстар</a>
+
+    <a *ngIf="isLoggedIn() && isStudent()" routerLink="/my-courses" data-text="Менің курстарым">Менің курстарым</a>
+    <a *ngIf="isLoggedIn() && isCurator()" routerLink="/my-students" data-text="Менің студенттерім">Менің студенттерім</a>
+    <a *ngIf="isLoggedIn() && isSeller()" routerLink="/registrations" data-text="Өтінімдер">Өтінімдер</a>
+
+    <a href="https://oysana.site" target="_blank" data-text="Сынама ҰБТ тапсыру">Сынама ҰБТ тапсыру</a>
+    <a routerLink="/feedback" data-text="Кері байланыс">Кері байланыс</a>
+
+    <ng-container *ngIf="isLoggedIn(); else loggedOut">
+      <a (click)="onLogout()" data-text="Шығу">Шығу</a>
+    </ng-container>
+    <ng-template #loggedOut>
+      <a routerLink="/login" data-text="Кіру">Кіру</a>
+    </ng-template>
+  </div>
+
+  <!-- Кнопка меню -->
+  <button class="menu-button" (click)="toggleMenu($event)">☰</button>
+</nav>
+
+<!-- Мобильное меню -->
+<div class="mobile-menu">
+  <div class="dropdown-menu" id="dropdownMenu" [class.open]="isMenuOpen">
+    <a routerLink="/home" data-text="Басты бет" (click)="toggleMenu($event)">Басты бет</a>
+    <a routerLink="/courses" data-text="Курстар" (click)="toggleMenu($event)">Курстар</a>
+    <a *ngIf="isLoggedIn() && isStudent()" routerLink="/my-courses" data-text="Менің курстарым" (click)="toggleMenu($event)">Менің курстарым</a>
+    <a *ngIf="isLoggedIn() && isCurator()" routerLink="/my-students" data-text="Менің студенттерім" (click)="toggleMenu($event)">Менің студенттерім</a>
+    <a *ngIf="isLoggedIn() && isSeller()" routerLink="/registrations" data-text="Өтінімдер" (click)="toggleMenu($event)">Өтінімдер</a>
+    <a href="https://oysana.site" target="_blank" rel="noopener noreferrer" data-text="Сынама ҰБТ тапсыру">Сынама ҰБТ тапсыру</a>
+    <a routerLink="/feedback" data-text="Кері байланыс">Кері байланыс</a>
+    <ng-container *ngIf="isLoggedIn(); else loggedOut">
+      <a (click)="onLogout(); toggleMenu($event)" data-text="Шығу">Шығу</a>
+    </ng-container>
+    <ng-template #loggedOut>
+      <a (click)="toggleMenu($event)" routerLink="/login" data-text="Кіру">Кіру</a>
+    </ng-template>
+  </div>
+</div>

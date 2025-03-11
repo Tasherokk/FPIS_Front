@@ -1,0 +1,254 @@
+<!-- Вёрстка главной страницы.
+     Допустим, у вас четыре больших секции. Вверху четыре кнопки (Anchors, прокручивающие к нужному ID) -->
+
+<div class="home-buttons">
+  <button class="home-button" (click)="switchSection(0)">Оқыту бағдарламасы</button>
+  <button class="home-button" (click)="switchSection(1)">Оқытушылар</button>
+  <button class="home-button" (click)="switchSection(2)">Тарифтер</button>
+  <button class="home-button" (click)="switchSection(3)">Тіркелу</button>
+</div>
+
+
+
+<div class="sections">
+  <section id="section1">
+    <div class="carousel-and-title">
+      <h1 class="sec1-title">OySana-да не үйренесіз?</h1>
+      <div class="carousel-container">
+
+        <!-- Слайдтар -->
+        <div class="carousel-slides" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+          <div
+            *ngFor="let slide of slides; let i = index"
+            class="slide"
+            [class.active]="i === currentSlide"
+          >
+            <img [src]="slide.image || 'assets/sec1-default.png'" alt="Slide image" class="slide-image" />
+            <div class="slide-content">
+              <h3 class="slide-title">{{ slide.title }}</h3>
+              <p [innerHTML]="slide.description" class="slide-description"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Навигациялық нүктелер -->
+        <div class="carousel-dots">
+
+          <!--Cолға жылжытатын батырма-->
+          <img src="assets/left-arrow.png" class="arrow left-arrow" (click)="previousSlide()">
+
+          <span
+            *ngFor="let slide of slides; let i = index"
+            class="dot"
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)"
+          ></span>
+
+          <!--Оңға жылжытатын батырма-->
+          <img src="assets/right-arrow.png"  class="arrow right-arrow" (click)="nextSlide()">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="section2">
+    <h1 class="sec2-title">Біздің мұғалімдер</h1>
+    <div class="intro-section">
+      <!-- Басты видео -->
+      <div class="main-video">
+        <ng-container *ngIf="mainVideo; else noMainVideo">
+          <video [src]="mainVideo" controls muted loop></video>
+        </ng-container>
+        <ng-template #noMainVideo>
+          <div class="no-video">
+            <div class="coming-soon">
+              <img src="assets/coming-soon.gif">
+              <p>Видео жуырда жүктеледі!</p>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+      <!-- Оқытушылардың карточкалары -->
+      <div class="teachers-list">
+        <div *ngFor="let teacher of teachers; let i = index" class="teacher-card" [ngClass]="{'card-even': i % 2 === 0, 'card-odd': i % 2 !== 0}">
+          <div *ngIf="i % 2 === 0" class="teacher-content">
+            <img [src]="teacher.photo || 'assets/teacher-default-photo.png'" alt="Default photo"/>
+            <div class="teacher-info">
+              <h3>{{ teacher.name }}</h3>
+              <p [innerHTML]="teacher.bio"></p>
+            </div>
+          </div>
+          <div *ngIf="i % 2 !== 0" class="teacher-content">
+            <div class="teacher-info">
+              <h3>{{ teacher.name }}</h3>
+              <p [innerHTML]="teacher.bio"></p>
+            </div>
+            <img [src]="teacher.photo || 'assets/teacher-default-photo.png'" alt="Default photo"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="section3" class="pricing-section">
+    <div class="pricing-container">
+
+      <div class="pricing-titles">
+        <h3 class="pricing-title">Табысқа апарар жолды таңда</h3>
+      </div>
+      <!-- Карточки -->
+      <div class="pricing-cards">
+        <!-- Левая карточка -->
+        <div class="pricing-card" id="standard">
+          <div class="pricing-header">
+            <img src="assets/standard-icon.png" alt="Стандарт" />
+            <h3>Стандарт</h3>
+          </div>
+          <ul class="pricing-features">
+            <li>Комбо 2 таңдау пән</li>
+            <li>30 видео + 30 видео</li>
+            <li>4 live сабақ</li>
+            <li>Сынама тест айына 1 рет</li>
+            <li>Тақырыптық тапсырмалар</li>
+
+          </ul>
+          <div class="pricing-footer">
+            <div class="month-price" style="display: flex; justify-content: space-between; width: 80%">
+              <p class="year">Бір айға</p>
+            </div>
+            <p class="new-price">₸ 40 000</p>
+          </div>
+        </div>
+
+        <div class="pricing-card" id="standard-plus">
+          <div class="pricing-header">
+            <img src="assets/standard-plus-icon.png" alt="Стандарт+" />
+            <h3>Стандарт+</h3>
+          </div>
+          <ul class="pricing-features">
+            <li>Комбо 2 таңдау пән</li>
+            <li>30 видео + 30 видео</li>
+            <li>6 live сабақ</li>
+            <li>Сынама тест айына 2 рет</li>
+            <li>Тақырыптық тапсырмалар</li>
+            <li>Кураторлық бақылау</li>
+          </ul>
+          <div class="pricing-footer">
+            <div class="month-price" style="display: flex; justify-content: space-between; width: 80%">
+              <p class="year">Бір айға</p>
+              <p class="old-price">₸ 70 000</p>
+            </div>
+            <p class="new-price">₸ 50 000</p>
+          </div>
+        </div>
+
+        <!-- Правая карточка -->
+        <div class="pricing-card" id="premium">
+          <div class="pricing-header">
+            <img src="assets/premium-icon.png" alt="Премиум" />
+            <h3>Вип</h3>
+          </div>
+          <ul class="pricing-features">
+            <li>Комбо 2 таңдау пән</li>
+            <li>30 видео + 30 видео</li>
+            <li>8 live сабақ</li>
+            <li>Сынама тест айына 4 рет</li>
+            <li>Тақырыптық тапсырмалар</li>
+            <li>Кураторлық бақылау</li>
+            <li>Жаңа нұсқа талдау видеолары(аптасына 1 рет)</li>
+          </ul>
+          <div class="pricing-footer">
+            <div class="month-price" style="display: flex; justify-content: space-between; width: 80%">
+              <p class="year">Бір айға</p>
+              <p class="old-price">₸ 80 000</p>
+            </div>
+            <p class="new-price">₸ 60 000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="section4">
+
+    <h1 class="header">Бізбен бірге жетістікке қадам жасаңыз</h1>
+
+    <div class="containers">
+
+      <div class="whatsapp-container">
+        <p>Байланыс деректерін қалдыруыңызды өтінеміз</p>
+        <p>Біздің менеджерлер сізге хабарласады</p>
+        <a target="_blank" href="https://wa.me/77010282424?text=Сәлеметсізбе! Курсқа жазылғым келеді!" class="btn-flip" data-back="Back"
+           data-front="Бізге жаз!">
+        </a>
+      </div>
+
+
+      <div class="registration-container">
+        <form (ngSubmit)="onSubmit(feedbackForm)" #feedbackForm="ngForm">
+          <!-- Имя -->
+          <div class="form-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="Есіміңіз"
+              required
+              class="form-input"
+              ngModel
+              #name="ngModel"
+              [class.invalid]="name.invalid && name.touched"
+            />
+            <div *ngIf="name.invalid && name.touched" class="error-message">
+              Есіміңізді енгізіңіз
+            </div>
+          </div>
+
+          <!-- Телефон -->
+          <div class="form-group">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Телефон номеріңіз"
+              required
+              pattern="^7[0-9]{10}$"
+              ngModel
+              #phone="ngModel"
+              class="form-input"
+              [class.invalid]="phone.invalid && phone.touched"
+            />
+            <div *ngIf="phone.invalid && phone.touched" class="error-message">
+              Телефон нөмеріңіз 7 цифрінен басталып, 11 цифрдан тұруы керек
+            </div>
+          </div>
+
+          <!-- Пәндер жұбы -->
+          <div class="subject-selection-container">
+            <div class="form-group">
+              <select id="subject-pair" name="selected_pair" [(ngModel)]="selectedPair" class="form-select" required>
+                <option value="" disabled selected>Пәндер жұбын таңдаңыз</option>
+                <option *ngFor="let pair of availablePairs" [value]="pair.name">
+                  {{ pair.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Кнопка -->
+          <button type="submit" class="submit-button" [disabled]="feedbackForm.invalid">ЖІБЕРУ</button>
+          <div class="agreement">
+            «ЖІБЕРУ» түймесін басу арқылы сіз жеке деректеріңіздің өңделуіне келісім бересіз.
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+</div>

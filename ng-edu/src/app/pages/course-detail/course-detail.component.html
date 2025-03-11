@@ -1,0 +1,21 @@
+<div class="course-detail-page">
+  <h2 class="course-title">Курс: {{ course?.title }}</h2>
+  <p class="course-description" *ngIf="course?.description"><strong>Сипаттама:</strong> <br>{{ course?.description }}</p>
+
+  <div class="demo-lesson" *ngIf="firstTopic">
+    <h3>Сабақ үлгісі</h3>
+    <a class="lesson-link" [href]="firstTopic.video_url" target="_blank">{{ firstTopic.title }}</a>
+  </div>
+
+  <hr/>
+
+  <div>
+    <h3>Барлық тақырыптар (жалпы тізім)</h3>
+    <ul>
+      <li *ngFor="let t of allTopics; let i = index">
+        <span>{{ t.title }}</span>
+        <span *ngIf="!t.is_unlocked" style="color: gray;">(бұғатталған)</span>
+      </li>
+    </ul>
+  </div>
+</div>
