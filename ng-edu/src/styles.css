@@ -20,3 +20,11 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --primary: #1a85eb;       /* синний */
+  --accent:  #ffe259;       /* желтый */
+  --bg:      #f8fafc;       /* фон страницы */
+  --card-bg: #ffffff;       /* фон карточек куратора */
+  --text:    #1f2937;       /* базовый текст */
+}

@@ -1,9 +1,26 @@
-<h2>Мои студенты</h2>
-<div *ngFor="let student of data">
-  <h3>Студент: {{ student.student_name }}</h3>
-  <ul>
-    <li *ngFor="let c of student.courses">
-      {{ c.course_title }}: {{ c.passed_topics }}/{{ c.total_topics }} тем
-    </li>
-  </ul>
+<h2 class="title">Менің студенттерім</h2>
+
+<div class="students-grid">
+  <div class="student-card" *ngFor="let student of data">
+    <h3 class="student-name">Студент: {{ student.student_name }}</h3>
+
+    <ul class="courses-list">
+      <li class="course-item" *ngFor="let c of student.courses">
+        <div class="course-row">
+          <span class="course-title">{{ c.course_title }}</span>
+          <span class="course-progress">
+            {{ c.passed_topics }}/{{ c.total_topics }} тақырып
+          </span>
+        </div>
+
+        <!-- прогресс-бар -->
+        <div class="progress-bar">
+          <div
+            class="progress-bar__fill"
+            [style.width.%]="( +c.passed_topics / +c.total_topics ) * 100"
+          ></div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
